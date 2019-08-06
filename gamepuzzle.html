@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <style>
+      .pixel{
+          float: left;
+
+      }
+      .main{
+          width: 400px;
+          margin:auto;
+      }
+  </style>
+</head>
+<body>
+<div class="main">
+<div style="margin: auto">
+    <div style="background-image:url('images/1.jpg');background-position:0%0%;width:200px;height:200px"class="pixel"id="pixel1"onclick="change(this);check()"></div>
+    <div style="background-image:url('images/3.jpg');background-position:100%0%;width:200px;height:200px"class="pixel"id="pixel2" onclick="change(this);check()"></div>
+    <div style="background-image:url('images/2.jpg');background-position:0%50%;width:200px;height:200px"class="pixel"id="pixel3" onclick="change(this);check()"></div>
+    <div style="background-image:url('images/1.jpg');background-position:100%50%;width: 200px;height:200px"class="pixel"id="pixel4" onclick="change(this);check()"></div>
+    <div style="background-image:url('images/3.jpg');background-position:0%100%;width: 200px;height:200px"class="pixel"id="pixel5" onclick="change(this);check()"></div>
+    <div style="background-image:url('images/1.jpg');background-position:100%100%;width:200px;height:200px"class="pixel"id="pixel6" onclick="change(this);check()"></div>
+</div>
+</div>
+<script>
+    function change(a) {
+        //a.setAttribute("mouse-click", 0);
+        click=a.getAttribute("mouse-click");
+        click++;
+        console.log(click);
+        if(click %3 ==0){
+            a.style.backgroundImage="url('images/1.jpg')";
+            click++;
+            a.setAttribute("mouse-click",click)
+        }else if(click%3==1){
+            a.style.backgroundImage="url('images/2.jpg')";
+            click++;
+            a.setAttribute("mouse-click",click)
+        }else if(click%3==2){
+            a.style.backgroundImage="url('images/3.jpg')";
+            click++;
+            a.setAttribute("mouse-click",click)
+        }
+    }
+    function check() {
+        let pixel_1 = document.getElementById('pixel1').style.backgroundImage;
+        let pixel_2 = document.getElementById('pixel2').style.backgroundImage;
+        let pixel_3 = document.getElementById('pixel3').style.backgroundImage;
+        let pixel_4 = document.getElementById('pixel4').style.backgroundImage;
+        let pixel_5 = document.getElementById('pixel5').style.backgroundImage;
+        let pixel_6 = document.getElementById('pixel6').style.backgroundImage;
+        if (pixel_1 == pixel_2
+            && pixel_2 == pixel_3
+            && pixel_3 == pixel_4
+            && pixel_4 == pixel_5
+            && pixel_5 == pixel_6){
+            console.log("trung");
+
+        }
+    }
+</script>
+</body>
+</html>
